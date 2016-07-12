@@ -12,14 +12,17 @@ func main() {
 
 	home := os.Getenv("HOME")
 
-	t := time.Now()
-	date := t.Format("Jan-02-2006")
-	timestamp := t.Format("15:04:05")
-
 	notepath := flag.String("dir", fmt.Sprintf("%v/Dropbox/Notes", home), "Notes Directory")
 	prefix := flag.String("pre", "jot-", "Note filename prefix")
 	note := flag.String("note", "Tick..", "Note content")
+	datefmt := flag.String("datefmt", "Jan-02-2006", "Date Format (see golang time package)")
+	timefmt := flag.String("timefmt", "15:04:05", "Timestamp Format (see golang time package)")
+
 	flag.Parse()
+
+	t := time.Now()
+	date := t.Format(*datefmt)
+	timestamp := t.Format(*timefmt)
 
 	notefile := path.Join(*notepath, fmt.Sprintf("%v%v.txt", *prefix, date))
 
