@@ -1,4 +1,7 @@
-# Jot appends a timestamped entry to a text file. 
+# Jot 
+
+Jot appends a timestamped entry to a daily journal file. 
+
 
 ```
 Usage of jot:
