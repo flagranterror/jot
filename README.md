@@ -19,3 +19,9 @@ Usage of bin/jot:
 
 By default creates or appends to `$HOME/Dropbox/Notes/jot-Jan-02-2006.txt`,
 substituting in today's date.
+
+Jot was designed to be called from a small bash/Zenity script, so it only
+supports command line configuration. A bash (or batch for windows) script is 
+trivially easy to create. I've included a couple, and the Zenity wrapper I'm
+using. I'm sure it would be equally simple to put something together for Alfred
+on OS X.
