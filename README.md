@@ -17,5 +17,5 @@ Usage of bin/jot:
     	Timestamp Format (see golang time package) (default "15:04:05")
 ```
 
-By default creates or appends to `$HOME/Dropbox/Notes/jot-Jan-02-2006`,
-substituting in today's date. 
+By default creates or appends to `$HOME/Dropbox/Notes/jot-Jan-02-2006.txt`,
+substituting in today's date.
