@@ -7,9 +7,9 @@ IOS, and wanted a work-alike for my desktop.
 ## Usage
 
 ```
-Usage of bin/jot:
+Usage of ./jot_linux32:
   -datefmt string
-    	Date Format (see golang time package) (default "Jan-02-2006")
+    	Date Format - Changing the date format can change how often a file is rotated. (see golang time package) (default "Jan-2006")
   -dir string
     	Notes Directory (default "/home/user/Dropbox/Notes")
   -note string
@@ -17,7 +17,8 @@ Usage of bin/jot:
   -pre string
     	Note filename prefix (default "jot-")
   -timefmt string
-    	Timestamp Format (see golang time package) (default "15:04:05")
+    	Timestamp Format (see golang time package) (default "## Jan 2 15:04:05")
+
 ```
 
 By default creates or appends to `$HOME/Dropbox/Notes/jot-Jan-02-2006.txt`,
