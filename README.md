@@ -37,6 +37,14 @@ Jot doesn't do enough to require dependencies.
 
 ## Building
 
-* Install [Go](https://golang.org/)
+* Install [Go](https://golang.org/) and set up `GOHOME` and `GOPATH`.
+
+### For you
 * `go get github.com/easy-bot/jot`
 * `go install github.com/easy-bot/jot`
+
+### For distribution
+* `git clone https://github.com/easy-bot/jot.git`
+* `cd jot`
+* `make [win32|win64|linux32|linux64|darwin] && make package`
+* Grab the generated zip and/or tar.gz files and do whatever.
