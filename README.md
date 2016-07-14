@@ -2,7 +2,7 @@
 
 Jot appends a timestamped entry to a daily journal file. I wrote because I love
 the "Append to Journal" task in [Drafts](http://agiletortoise.com/drafts/) on
-IOS, and wanted a work-alike for my desktop. 
+IOS, and wanted a work-alike for my desktop.
 
 ## Usage
 
@@ -35,5 +35,8 @@ Alfred on OS X.
 * Install [Go](https://golang.org/)
 * `go get github.com/easy-bot/jot`
 * `go install github.com/easy-bot/jot`
+
+
+## Dependencies
 
 Jot doesn't do enough to require dependencies.
