@@ -1,7 +1,7 @@
 PROJECT = jot
 VERSION = v1.0.1
-NAME = $(PROJECT)-$(VERSION)
-DISTDIR = dist/$(NAME)
+RELEASE = $(PROJECT)-$(VERSION)
+DISTDIR = dist/$(RELEASE)
 .PHONY: scripts clean
 
 all: win64 win32 linux64 linux32 darwin
@@ -28,10 +28,10 @@ scripts:
 	cp scripts/* $(DISTDIR) && cp README.md $(DISTDIR) && cp LICENSE $(DISTDIR)
 
 zip: scripts
-	cd dist/ && zip -r $(NAME).zip $(NAME)
+	cd dist/ && zip -r $(RELEASE).zip $(RELEASE)
 
 tar: scripts
-	cd dist/ && tar -czf $(NAME).tar.gz $(NAME)
+	cd dist/ && tar -czf $(RELEASE).tar.gz $(RELEASE)
 
 package: zip tar
 
