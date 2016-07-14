@@ -1,6 +1,6 @@
-VERSION = v1.0.0-beta2
+VERSION = v1.0.0
 .PHONY: scripts clean
-	
+
 all: win64 win32 linux64 linux32 darwin
 
 install:
@@ -22,15 +22,15 @@ darwin:
 	GOOS=darwin GOARCH=amd64 go build -o dist/jot_darwin
 
 scripts:
-	cp scripts/* dist/
+	cp scripts/* dist/ && cp README.md dist && cp LICENSE dist
 
-zip:
-	cd dist/ && zip -r jot-$(VERSION).zip jot* gjot.sh
+zip: scripts
+	cd dist/ && zip -r jot-$(VERSION).zip jot* gjot.sh README.md LICENSE
 
-tar:
-	cd dist/ && tar -czf jot-$(VERSION).tar.gz jot* gjot.sh
+tar: scripts
+	cd dist/ && tar -czf jot-$(VERSION).tar.gz jot* gjot.sh README.md LICENSE
 
-package: scripts zip tar
+package: zip tar
 
 clean:
 	rm -f dist/*

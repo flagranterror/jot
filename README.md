@@ -7,7 +7,7 @@ IOS, and wanted a work-alike for my desktop.
 ## Usage
 
 ```
-Usage of ./jot_linux32:
+Usage of jot:
   -datefmt string
     	Date Format - Changing the date format can change how often a file is rotated. (see golang time package) (default "Jan-2006")
   -dir string
@@ -16,9 +16,10 @@ Usage of ./jot_linux32:
     	Note content (default "Tick..")
   -pre string
     	Note filename prefix (default "jot-")
+  -suffix string
+    	Note filename prefix (default ".md")
   -timefmt string
     	Timestamp Format (see golang time package) (default "## Jan 2 15:04:05")
-
 ```
 
 By default creates or appends to `$HOME/Dropbox/Notes/jot-Jan-02-2006.txt`,
@@ -30,13 +31,12 @@ is trivially easy to create. I've included a couple, and the Zenity wrapper
 I'm using. I'm sure it would be equally simple to put something together for
 Alfred on OS X.
 
+## Dependencies
+
+Jot doesn't do enough to require dependencies.
+
 ## Building
 
 * Install [Go](https://golang.org/)
 * `go get github.com/easy-bot/jot`
 * `go install github.com/easy-bot/jot`
-
-
-## Dependencies
-
-Jot doesn't do enough to require dependencies.
