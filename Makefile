@@ -1,5 +1,6 @@
 VERSION = v1.0.0-beta2
-
+.PHONY: scripts clean
+	
 all: win64 win32 linux64 linux32 darwin
 
 install:
@@ -20,8 +21,16 @@ linux32:
 darwin:
 	GOOS=darwin GOARCH=amd64 go build -o dist/jot_darwin
 
+scripts:
+	cp scripts/* dist/
+
 zip:
-	cp scripts/* dist/ && cd dist/ && zip -r jot-$(VERSION).zip jot* gjot.sh
+	cd dist/ && zip -r jot-$(VERSION).zip jot* gjot.sh
+
+tar:
+	cd dist/ && tar -czf jot-$(VERSION).tar.gz jot* gjot.sh
+
+package: scripts zip tar
 
 clean:
 	rm -f dist/*
