@@ -3,15 +3,55 @@ package main
 import (
 	"flag"
 	"fmt"
+	"io/ioutil"
 	"os"
 	"path"
 	"time"
 )
 
+func prepend(fname string, note string, timestamp string) error {
+
+	buf, err := ioutil.ReadFile(fname)
+
+	if err != nil {
+		return err
+	}
+
+	f, err := os.OpenFile(fname, os.O_APPEND|os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
+	defer f.Close()
+
+	if err != nil {
+		return err
+	}
+
+	if _, err := f.WriteString(fmt.Sprintf("%v%v\n\n%v", timestamp, note, string(buf))); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func append(fname string, note string, timestamp string) error {
+	f, err := os.OpenFile(fname, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+
+	if err != nil {
+		return err
+	}
+
+	defer f.Close()
+
+	if _, err := f.WriteString(fmt.Sprintf("%v%v\n\n", timestamp, note)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func main() {
 
 	home := os.Getenv("HOME")
 
+	pre := flag.Bool("prepend", false, "Add note to beginning of file.")
 	notepath := flag.String("dir", fmt.Sprintf("%v/Dropbox/Notes", home), "Notes Directory")
 	prefix := flag.String("pre", "jot-", "Note filename prefix")
 	suffix := flag.String("suffix", ".md", "Note filename prefix")
@@ -27,16 +67,15 @@ func main() {
 
 	notefile := path.Join(*notepath, fmt.Sprintf("%v%v%v", *prefix, date, *suffix))
 
-	f, err := os.OpenFile(notefile, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+	if *pre {
+		if err := prepend(notefile, *note, timestamp); err != nil {
+			panic(err)
+		}
 
-	if err != nil {
-		panic(err)
-	}
-
-	defer f.Close()
-
-	if _, err := f.WriteString(fmt.Sprintf("%v%v\n\n", timestamp, *note)); err != nil {
-		panic(err)
+	} else {
+		if err := append(notefile, *note, timestamp); err != nil {
+			panic(err)
+		}
 	}
 
 }
