@@ -17,7 +17,7 @@ func main() {
 	suffix := flag.String("suffix", ".md", "Note filename prefix")
 	note := flag.String("note", "Tick..", "Note content")
 	datefmt := flag.String("datefmt", "Jan-2006", "Date Format - Changing the date format can change how often a file is rotated. (see golang time package)")
-	timefmt := flag.String("timefmt", "## Jan 2 15:04:05", "Timestamp Format (see golang time package)")
+	timefmt := flag.String("timefmt", "**Jan 2 15:04:05:** ", "Timestamp Format (see golang time package)")
 
 	flag.Parse()
 
@@ -35,7 +35,7 @@ func main() {
 
 	defer f.Close()
 
-	if _, err := f.WriteString(fmt.Sprintf("%v\n%v\n\n", timestamp, *note)); err != nil {
+	if _, err := f.WriteString(fmt.Sprintf("%v%v\n\n", timestamp, *note)); err != nil {
 		panic(err)
 	}
 

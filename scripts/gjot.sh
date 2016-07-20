@@ -5,4 +5,4 @@ ZENITY=/usr/bin/zenity
 JOT=~/bin/jot
 note=$($ZENITY --entry --text="Line to log" --entry-text="Remember this moment." 2> /dev/null)
 
-$JOT -note="$note"
+$JOT -note="$note\n"
