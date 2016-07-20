@@ -11,11 +11,7 @@ import (
 
 func prepend(fname string, note string, timestamp string) error {
 
-	buf, err := ioutil.ReadFile(fname)
-
-	if err != nil {
-		return err
-	}
+	buf, _ := ioutil.ReadFile(fname)
 
 	f, err := os.OpenFile(fname, os.O_APPEND|os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0600)
 	defer f.Close()
@@ -57,7 +53,7 @@ func main() {
 	suffix := flag.String("suffix", ".md", "Note filename prefix")
 	note := flag.String("note", "Tick..", "Note content")
 	datefmt := flag.String("datefmt", "Jan-2006", "Date Format - Changing the date format can change how often a file is rotated. (see golang time package)")
-	timefmt := flag.String("timefmt", "**Jan 2 15:04:05:** ", "Timestamp Format (see golang time package)")
+	timefmt := flag.String("timefmt", "**Mon, Jan 2 15:04:05:** ", "Timestamp Format (see golang time package)")
 
 	flag.Parse()
 
