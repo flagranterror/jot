@@ -1,5 +1,5 @@
 PROJECT = jot
-VERSION = v1.0.4
+VERSION = v1.0.5
 RELEASE = $(PROJECT)-$(VERSION)
 BUILDDIR = dist/$(RELEASE)
 .PHONY: scripts clean
