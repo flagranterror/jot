@@ -44,7 +44,7 @@ Jot doesn't do enough to require dependencies.
 * `go install github.com/dougkmcnish/jot`
 
 ### For distribution
-* `git clone https://github.com/sfsdeveloper/jot.git`
+* `git clone https://github.com/dougkmcnish/jot.git`
 * `cd jot`
 * `make [win32|win64|linux32|linux64|darwin] && make package`
 * Grab the generated zip and/or tar.gz files and do whatever.
