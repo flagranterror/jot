@@ -40,8 +40,8 @@ Jot doesn't do enough to require dependencies.
 * Install [Go](https://golang.org/) and set up `GOHOME` and `GOPATH`.
 
 ### For you
-* `go get github.com/sfsdeveloper/jot`
-* `go install github.com/sfsdeveloper/jot`
+* `go get github.com/dougkmcnish/jot`
+* `go install github.com/dougkmcnish/jot`
 
 ### For distribution
 * `git clone https://github.com/sfsdeveloper/jot.git`
